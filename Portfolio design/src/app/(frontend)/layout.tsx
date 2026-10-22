@@ -55,7 +55,8 @@ export default function RootLayout({
   const customScripts = makeSiteSettings.customScripts
 
   return (
-    <html lang={language}>
+    // The inline theme script sets data-theme before hydration.
+    <html lang={language} suppressHydrationWarning>
       <head>
         {renderHeadCustomCode(customScripts?.headStart, "head-start")}
         {renderHeadCustomCode(customScripts?.headEnd, "head-end")}
